@@ -3,6 +3,9 @@ import pandas as pd
 import streamlit as st
 import plotly.graph_objs as go
 from datetime import datetime
+import time
+
+auto_refresh = st.sidebar.checkbox("Enable Auto-Refresh", value=False)
 
 FOLDER_PATH = "Crypto-Realtime/crypto_data"
 
@@ -29,6 +32,7 @@ def create_graph(data, crypto_name):
     else:
         st.error(f"El archivo {crypto_name} no tiene la colmuna current_price o tiempo")
         return None
+
 
 
 st.title("Dashboard Criptomonedas")
@@ -115,3 +119,7 @@ st.plotly_chart(fig4)
 
 
 st.text(f"Last updated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+
+if auto_refresh:
+    time.sleep(10)
+    st.experimental_rerun()
