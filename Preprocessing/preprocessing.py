@@ -1,6 +1,7 @@
 import modin.pandas as mpd
 import os
 import psycopg2
+from time import sleep
 
 '''
 los datos se van acumulando en tiempo real en los csv's
@@ -49,7 +50,7 @@ def preprocesar():
     for file_path in file_paths:
         df = mpd.read_csv(file_path)
         # aquí se pueden perder los datos que se inserten después de la carga y antes del remove
-        # os.remove(file_path) # kafka creará de nuevo el archivo con nuevos datos
+        os.remove(file_path) # kafka creará de nuevo el archivo con nuevos datos
         # eliminar filas con datos vacíos en caso de haber
         df = df.dropna()
         # pasar el timestamp a datetime en caso de no estar formateado
@@ -80,4 +81,6 @@ def preprocesar():
     conn.close()
 
 if __name__ == '__main__':
-     preprocesar()
+     while True:
+         preprocesar()
+         sleep(120)
