@@ -6,7 +6,6 @@ from datetime import datetime
 
 st.title("Dashboard Criptomonedas")
 
-# Function to connect to PostgreSQL
 def connect_to_db():
     return psycopg2.connect(
         dbname="postgres",
@@ -16,14 +15,13 @@ def connect_to_db():
         port="5432"
     )
 
-@st.cache_data(ttl=10)  # Reload data every 10 seconds
+@st.cache_data(ttl=10)
 def load_crypto_data():
     conn = connect_to_db()
     crypto_data = {}
     try:
         query = "SELECT * FROM criptomonedas"
         df = pd.read_sql(query, conn)
-        # Convert timestamp to datetime for visualization
         df['timestamp'] = pd.to_datetime(df['timestamp'])
         for symbol in df['symbol'].unique():
             crypto_data[symbol] = df[df['symbol'] == symbol]
