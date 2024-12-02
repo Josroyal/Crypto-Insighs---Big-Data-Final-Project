@@ -49,65 +49,79 @@ El proyecto presenta varios desafíos técnicos:
 - **Embeddings y Vectorización**:
   - **OpenAI Embeddings**: Vectorización de textos para búsqueda y análisis semántico.
 
-## Indicaciones de Cómo Ejecutar el Proyecto
+## Indicaciones para Ejecutar el Proyecto
 
-Para poner en marcha el proyecto, siga estos pasos:
-
-1. **Configuración del Entorno**:
+### 1. **Configuración del Entorno**:
    - Cree un entorno virtual con Conda:
-
      ```bash
-     conda create -n crypto_env python=3.12
-     conda activate crypto_env
+     conda create -n bigdata_llm python=3.11.7
+     conda activate bigdata_llm
      ```
-
    - Instale las dependencias necesarias:
-
      ```bash
      pip install -r requirements.txt
      ```
+     *Nota*: Verifique que el archivo `requirements.txt` incluya librerías como `langchain`, `modin`, `streamlit`, `kafka-python`, entre otras necesarias.
 
-     *Nota: Asegúrese de que `requirements.txt` incluye todas las librerías necesarias, como `langchain`, `modin`, `streamlit`, etc.*
+### 2. **Iniciar Kafka y ZooKeeper**:
+   - Configure y arranque Kafka y ZooKeeper con Docker. Use los siguientes comandos:
+     - Cree una red para Kafka:
+       ```bash
+       docker network create kafka-net
+       ```
+     - Asegúrese de que no haya contenedores anteriores ejecutándose:
+       ```bash
+       docker rm -f zookeeper kafka
+       ```
+     - Ejecute los servicios de ZooKeeper y Kafka en terminales separadas:
+       - ZooKeeper:
+         ```bash
+         docker run --name zookeeper --network kafka-net -p 2181:2181 -d zookeeper
+         ```
+       - Kafka:
+         ```bash
+         docker run -p 9092:9092 --name kafka --network kafka-net -e KAFKA_ZOOKEEPER_CONNECT=zookeeper:2181 -e KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://localhost:9092 -e KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR=1 -d confluentinc/cp-kafka
+         ```
 
-2. **Iniciar Kafka y ZooKeeper**:
-   - Utilice Docker para ejecutar Kafka y ZooKeeper:
+### 3. **Configurar Bases de Datos**:
+   - **MongoDB**: Asegúrese de que MongoDB está configurado y ejecutándose para almacenar datos relacionados con noticias y análisis.
+   - **SQL Databases**: Configure su base de datos SQL (MySQL o PostgreSQL) para manejar datos estructurados, como precios y métricas de criptomonedas.
 
-     ```bash
-     docker-compose up -d
-     ```
-
-     *Nota: Asegúrese de tener un archivo `docker-compose.yml` configurado correctamente.*
-
-3. **Configurar Bases de Datos**:
-   - **MongoDB**: Asegúrese de que MongoDB está instalado y en ejecución para almacenar las noticias.
-   - **Bases de Datos SQL**: Configure su base de datos preferida (MySQL, PostgreSQL, etc.) para almacenar datos de criptomonedas.
-
-4. **Ejecución del Scraper**:
-   - Navegue al directorio del scraper y ejecútelo:
-
+### 4. **Ejecución del Scraper**:
+   - Navegue al directorio donde está el scraper:
      ```bash
      cd scraper
+     ```
+   - Ejecútelo con Node.js:
+     ```bash
      node scraper.js
      ```
 
-     *Nota: Requiere Node.js para ejecutar scripts de JavaScript.*
-
-5. **Iniciar el Dashboard**:
-   - Ejecute la aplicación Streamlit:
-
+#### 5. **Iniciar el Dashboard**:
+   - Inicie la aplicación de visualización con Streamlit:
      ```bash
      streamlit run app.py
      ```
 
-6. **Configuración de LLMs y Embeddings**:
-   - Configure las credenciales de OpenAI para usar GPT-4 Omini y OpenAI Embeddings.
-   - Instale librerías adicionales si es necesario:
-
+### 6. **Configuración de Modelos de Lenguaje y Embeddings**:
+   - Configure las credenciales para OpenAI GPT-4 Omni y embeddings.
+   - Instale librerías necesarias adicionales:
      ```bash
-     pip install langchain textsplitter langchain-community
+     pip install langchain langchain-text-splitters langchain-community
      ```
+   - *Siga el tutorial de RAG en LangChain para implementar Recuperación con Generación*:
+     [LangChain RAG Tutorial](https://python.langchain.com/docs/tutorials/rag/).
 
-*Nota*: La implementación de Apache Pinot fue considerada para el manejo de bases de datos, pero no se logró implementar por dificultades técnicas.
+#### 7. **Alternativas Consideradas**:
+   - **Apache Pinot**: Se evaluó para el manejo de datos de alta frecuencia, pero no se implementó debido a limitaciones técnicas.
+   - **Tutorial de Coinbase API**: Consulte cómo obtener precios spot de criptomonedas usando su API:
+     [StackOverflow - Coinbase API](https://stackoverflow.com/questions/70868199/coinbase-api-call-to-get-crypto-spot-prices).
+
+---
+
+### Observaciones Adicionales
+- Considere integrar todas las librerías (`modin`, `streamlit`, `kafka-python`, etc.) en el entorno `bigdata_llm` para simplificar la administración de dependencias.
+- Si necesita ajustar los detalles de configuración, puede agregar scripts auxiliares o usar archivos de configuración YAML para centralizar parámetros.
 
 ## Arquitectura del Proyecto
 
