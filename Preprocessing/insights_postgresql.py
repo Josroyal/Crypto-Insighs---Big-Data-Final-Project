@@ -5,7 +5,7 @@ def insights():
         dbname="postgres", 
         user="postgres", 
         password="j73987927j", 
-        host="localhost", 
+        host="localhost",
         port="5432"
     )
     cursor = conn.cursor()
