@@ -176,15 +176,16 @@ Hasta el momento, el sistema ha demostrado ser capaz de:
 
 - **Integración de Apache Pinot**: No se logró implementar por dificultades técnicas, lo que limitó el manejo óptimo de ciertas consultas en tiempo real.
 - **Manejo de Datos en Tiempo Real**: Asegurar la sincronización y consistencia de datos provenientes de múltiples fuentes fue un desafío.
-- **Optimización del Chatbot**: Ajustar el rendimiento y relevancia de las respuestas del chatbot requirió iteraciones y pruebas exhaustivas.
+- **Creación del Chatbot**: No se logró implementar por falta de tiempo.
 
 ## Conclusiones y Posibles Mejoras
 
 - **Conclusiones**: El proyecto muestra el potencial de combinar datos en tiempo real y técnicas avanzadas de inteligencia artificial para mejorar la toma de decisiones en inversiones de criptomonedas.
 - **Posibles Mejoras**:
+  - **Implementación de Jobs Automatizados para el Scraping**: Eliminación de la necesidad de correr el script manualmente y obtener noticias actualizadas cada cierto periodo de tiempo.
   - **Implementación de Apache Pinot u Otras Soluciones**: Para mejorar el manejo de datos en tiempo real y consultas complejas.
   - **Ampliación de Fuentes de Datos**: Incluir más APIs y fuentes de noticias para enriquecer el análisis.
-  - **Optimización del Chatbot**: Integrar modelos más avanzados y personalizar respuestas según el perfil del usuario.
+  - **Creación del Chatbot**: Crear el chatbot para reemplazar las consultas por queries al integrar modelos avanzados y personalizar respuestas según el perfil del usuario.
   - **Mejora en la Visualización**: Incorporar gráficos más interactivos y personalizables en el dashboard.
 
 ---
