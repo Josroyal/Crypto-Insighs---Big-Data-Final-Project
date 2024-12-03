@@ -114,4 +114,14 @@ fig4.update_layout(
 )
 st.plotly_chart(fig4)
 
+st.header("Últimas Noticias")
+
+@st.cache_data(ttl=10)
+def load_news_data():
+    news_df = pd.read_csv("RAG/ai_rag_insights.csv")
+    return news_df
+
+news_df = load_news_data()
+st.table(news_df[['query', 'response']])
+
 st.text(f"Last updated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
