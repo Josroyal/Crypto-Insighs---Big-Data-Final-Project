@@ -170,6 +170,8 @@ Hasta el momento, el sistema ha demostrado ser capaz de:
 - **Integración de Apache Pinot**: No se logró implementar por dificultades técnicas, lo que limitó el manejo óptimo de ciertas consultas en tiempo real.
 - **Manejo de Datos en Tiempo Real**: Asegurar la sincronización y consistencia de datos provenientes de múltiples fuentes fue un desafío.
 - **Creación del Chatbot**: No se logró implementar por falta de tiempo.
+- **API's Gratuitas**: Las API's utilizadas tienen un limite de requests y no se puede realizar la verdadera experiencia de un flujo de data en tiempo real.
+
 
 ## Conclusiones y Posibles Mejoras
 
