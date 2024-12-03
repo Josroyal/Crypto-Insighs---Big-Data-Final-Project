@@ -46,8 +46,6 @@ El proyecto presenta varios desafíos técnicos:
   - **LangChain, LangGraph y LangSmith**: Frameworks para construir aplicaciones impulsadas por LLMs.
 - **Scraping Web**:
   - **Playwright (JavaScript)**: Automatización y scraping eficiente de páginas web.
-- **Embeddings y Vectorización**:
-  - **OpenAI Embeddings**: Vectorización de textos para búsqueda y análisis semántico.
 
 ## Indicaciones para Ejecutar el Proyecto
 
@@ -103,8 +101,8 @@ El proyecto presenta varios desafíos técnicos:
      streamlit run app.py
      ```
 
-### 6. **Configuración de Modelos de Lenguaje y Embeddings**:
-   - Configure las credenciales para OpenAI GPT-4 Omni y embeddings.
+### 6. **Configuración de Modelos de Lenguaje**:
+   - Configure las credenciales para OpenAI GPT-4 Omni.
    - Instale librerías necesarias adicionales:
      ```bash
      pip install langchain langchain-text-splitters langchain-community
@@ -141,12 +139,9 @@ El proyecto presenta varios desafíos técnicos:
 
 - **Procesamiento y Análisis**:
   - **Modin** y otras herramientas procesan los datos para generar insights.
-  - Se utilizan **OpenAI Embeddings** para vectorizar noticias.
 
-- **Inteligencia Artificial y Chatbot**:
+- **Inteligencia Artificial**:
   - Implementación de **RAG** utilizando **LangChain** y **GPT-4 Omini**.
-  - El chatbot accede a las noticias vectorizadas para proporcionar respuestas informadas.
-
 ## Descripción del Proceso ETL/ELT
 
 Seguimos un enfoque **Extract-Load-Transform (ELT)**:
@@ -161,14 +156,12 @@ Seguimos un enfoque **Extract-Load-Transform (ELT)**:
 
 3. **Transformación (Transform)**:
    - Cálculos y agregaciones para generar insights.
-   - Vectorización de textos para análisis semántico y uso en el chatbot.
 
 ## Resultados Obtenidos y Análisis de Estos
 
 Hasta el momento, el sistema ha demostrado ser capaz de:
 
 - Proporcionar visualizaciones en tiempo real de las principales criptomonedas, permitiendo a los usuarios observar tendencias y cambios instantáneamente.
-- Ofrecer un chatbot que responde preguntas basadas en las últimas noticias, ayudando a los usuarios a entender eventos que podrían afectar al mercado.
 - Generar insights valiosos a partir de los datos almacenados, como predicciones de tendencias y alertas sobre cambios significativos.
 
 ## Dificultades Identificadas al Momento de Implementar la Solución
