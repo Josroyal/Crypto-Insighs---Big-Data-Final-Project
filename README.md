@@ -165,7 +165,7 @@ Seguimos un enfoque **Extract-Load-Transform (ELT)**:
 
 ## Resultados Obtenidos y Análisis de Estos
 
-*Borrador*: Hasta el momento, el sistema ha demostrado ser capaz de:
+Hasta el momento, el sistema ha demostrado ser capaz de:
 
 - Proporcionar visualizaciones en tiempo real de las principales criptomonedas, permitiendo a los usuarios observar tendencias y cambios instantáneamente.
 - Ofrecer un chatbot que responde preguntas basadas en las últimas noticias, ayudando a los usuarios a entender eventos que podrían afectar al mercado.
@@ -173,7 +173,6 @@ Seguimos un enfoque **Extract-Load-Transform (ELT)**:
 
 ## Dificultades Identificadas al Momento de Implementar la Solución
 
-*Borrador*:
 
 - **Integración de Apache Pinot**: No se logró implementar por dificultades técnicas, lo que limitó el manejo óptimo de ciertas consultas en tiempo real.
 - **Manejo de Datos en Tiempo Real**: Asegurar la sincronización y consistencia de datos provenientes de múltiples fuentes fue un desafío.
@@ -181,17 +180,11 @@ Seguimos un enfoque **Extract-Load-Transform (ELT)**:
 
 ## Conclusiones y Posibles Mejoras
 
-*Borrador*:
-
 - **Conclusiones**: El proyecto muestra el potencial de combinar datos en tiempo real y técnicas avanzadas de inteligencia artificial para mejorar la toma de decisiones en inversiones de criptomonedas.
 - **Posibles Mejoras**:
   - **Implementación de Apache Pinot u Otras Soluciones**: Para mejorar el manejo de datos en tiempo real y consultas complejas.
   - **Ampliación de Fuentes de Datos**: Incluir más APIs y fuentes de noticias para enriquecer el análisis.
   - **Optimización del Chatbot**: Integrar modelos más avanzados y personalizar respuestas según el perfil del usuario.
   - **Mejora en la Visualización**: Incorporar gráficos más interactivos y personalizables en el dashboard.
-
----
-
-**Nota**: Este documento es un borrador y está sujeto a cambios. Se invita a colaboradores y usuarios a aportar sugerencias y mejoras.
 
 ---
