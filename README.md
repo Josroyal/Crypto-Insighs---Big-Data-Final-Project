@@ -156,7 +156,7 @@ Seguimos un enfoque **Extract-Load-Transform (ELT)**:
    - Noticias mediante scraping web.
 
 2. **Carga (Load)**:
-   - Los datos se cargan directamente en Kafka y las bases de datos correspondientes.
+   - Los datos se ingestan directamente en Kafka y se cargan las bases de datos correspondientes.
    - Las noticias se almacenan en MongoDB.
 
 3. **Transformación (Transform)**:
