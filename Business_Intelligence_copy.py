@@ -122,16 +122,4 @@ fig4.update_layout(
 )
 st.plotly_chart(fig4)
 
-
-st.header("Últimas Noticias")
-
-@st.cache_data(ttl=10)
-def load_news_data():
-    news_df = pd.read_csv("path_to_your_news_file/news.csv")
-    return news_df
-
-news_df = load_news_data()
-st.table(news_df[['title', 'author']])
-
-
 st.text(f"Actualizado por ultima vez: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
