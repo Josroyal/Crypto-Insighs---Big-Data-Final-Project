@@ -125,7 +125,7 @@ El proyecto presenta varios desafíos técnicos:
 
 ## Arquitectura del Proyecto
 
-![Diagrama de Arquitectura](flujo_project.png)
+![Diagrama de Arquitectura](flujo_project2.png)
 
 ### Descripción de la Arquitectura
 
